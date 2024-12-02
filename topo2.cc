@@ -246,22 +246,6 @@ double generateParetoFlowSize(double alpha, double xm, double maxFlowSize)
     return flowSize;
 }
 
-int calculatePktSize(double flowSize, int minPktSize, int maxPktSize)
-{
-    double sizeRatio = (flowSize - 100.0) / (1500 * 100 * 2 - 100.0);
-    int pktSize = minPktSize + static_cast<int>(sizeRatio * (maxPktSize - minPktSize));
-
-    if (pktSize > maxPktSize)
-    {
-        pktSize = maxPktSize;
-    }
-    if (pktSize < minPktSize)
-    {
-        pktSize = minPktSize;
-    }
-
-    return pktSize;
-}
 
 double CalculateProbabilityForEid(const std::string &eid, const std::set<ScoreEntry> &scoreSet)
 {
