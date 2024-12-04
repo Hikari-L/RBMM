@@ -775,7 +775,7 @@ std::map<std::string, Time> Rk;
 void recvwithMYRORDER(Ptr<Socket> sock)
 {
     double minPkt = 64.0;
-    double maxPkt = 64.0;
+    double maxPkt = 1024.0;
     static Time last_time = Seconds(0);
     double p = 0.0;
     static double pktsize_thresh = 0.0;
