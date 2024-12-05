@@ -598,7 +598,7 @@ void NOREORDER(Ptr<Socket> sock)
     }
 }
 
-void RCBRB(Ptr<Socket> sock)
+void B(Ptr<Socket> sock)
 {
 
     static uint32_t globalBufferQueue1 = 0;
@@ -2003,9 +2003,9 @@ int main(int argc, char *argv[])
     {
         reorder1Sock->SetRecvCallback(MakeCallback(&CS));
     }
-    if (mode == "RCBRB")
+    if (mode == "B")
     {
-        reorder1Sock->SetRecvCallback(MakeCallback(&RCBRB));
+        reorder1Sock->SetRecvCallback(MakeCallback(&B));
     }
 
     Ptr<Socket> reorder2Sock;
@@ -2025,9 +2025,9 @@ int main(int argc, char *argv[])
     {
         reorder2Sock->SetRecvCallback(MakeCallback(&CS));
     }
-    if (mode == "RCBRB")
+    if (mode == "B")
     {
-        reorder2Sock->SetRecvCallback(MakeCallback(&RCBRB));
+        reorder2Sock->SetRecvCallback(MakeCallback(&B));
     }
 
     Ptr<Socket> recv1Sock;
